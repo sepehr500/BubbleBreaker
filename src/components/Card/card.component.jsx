@@ -14,7 +14,7 @@ class Card extends React.Component {
         return { boxShadow: '4px 4px 10px -2px rgba(0, 78, 255, 0.2)' };
         break;
       case('R'):
-        return { boxShadow: '4px 4px 10px -2px rgba(255, 0, 0, 0.2)' };
+        return { boxShadow: '4px 4px 10px -2px rgba(218, 59, 59, 0.2)' };
         break;
       default:
         return { boxShadow: '4px 4px 10px -2px rgba(0, 0, 0, 0.2)' };
