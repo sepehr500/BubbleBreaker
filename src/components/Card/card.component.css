@@ -66,6 +66,7 @@
 .card-body {
     margin-top: 10px;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .card-body-link-left {
