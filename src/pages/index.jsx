@@ -3,8 +3,7 @@ import Link from 'gatsby-link'
 
 import logo from '../assets/npr.png';
 import Card from '../components/Card/card.component';
-
-var service = require('../services/sources.service');
+import SourcesService from '../services/sources.service';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class IndexPage extends React.Component {
   }
 
   componentWillMount() {
-    service.getSources().then((items) => {
+    SourcesService.getSources().then((items) => {
       this.setState({
         items: items
       });
