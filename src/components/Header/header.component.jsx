@@ -1,0 +1,18 @@
+import React from 'react';
+import Link from 'gatsby-link';
+
+import './header.component.css';
+
+class Header extends React.Component {
+  render() {
+    return ( 
+      <div className="background">
+        <div className="setup">
+          <a href="/" className="text">Gatsby</a>
+        </div>
+      </div> 
+    )
+  }
+}
+
+export default Header;
