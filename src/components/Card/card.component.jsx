@@ -1,19 +1,14 @@
 import React from 'react';
-import Link from 'gatsby-link';
 
-import './card.component.css';
+import './card.component.scss';
 
 class Card extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   getBoxShadow(slant) {
-    switch(slant) {
-      case('L'):
+    switch (slant) {
+      case ('L'):
         return { boxShadow: '4px 4px 10px -2px rgba(0, 78, 255, 0.2)' };
         break;
-      case('R'):
+      case ('R'):
         return { boxShadow: '4px 4px 10px -2px rgba(218, 59, 59, 0.2)' };
         break;
       default:
@@ -23,11 +18,11 @@ class Card extends React.Component {
   }
 
   getTitleHoverColor(slant) {
-    switch(slant) {
-      case('L'):
+    switch (slant) {
+      case ('L'):
         return 'card-header-text-left';
         break;
-      case('R'):
+      case ('R'):
         return 'card-header-text-right';
         break;
       default:
@@ -37,16 +32,13 @@ class Card extends React.Component {
   }
 
   getLinkHoverColor(slant) {
-    switch(slant) {
-      case('L'):
+    switch (slant) {
+      case ('L'):
         return 'card-body-link-left';
-        break;
-      case('R'):
+      case ('R'):
         return 'card-body-link-right';
-        break;
       default:
         return 'card-body-link-center';
-        break;
     }
   }
 
@@ -61,7 +53,7 @@ class Card extends React.Component {
           <a className={this.getLinkHoverColor(this.props.data.slant)} href={this.props.data.articleLink} target="_blank">{this.props.data.articleTitle}</a>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 import logo from '../assets/npr.png';
 import Card from '../components/Card/card.component';
-import SourcesService from '../services/sources.service';
+import {fetchHeadlines} from '../services/fetchHeadlines';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -12,30 +12,21 @@ class IndexPage extends React.Component {
   }
 
   componentWillMount() {
-    SourcesService.getSources().then((items) => {
+    fetchHeadlines().then((items) => {
       this.setState({
-        items: items
+        items
       });
     });
   }
 
-  render() {
-    if (this.state.items) {
-      let cards  = this.state.items.map((item) => {
-        return (
+  render = () => ( 
+    <div> {this.state.items && 
+      this.state.items.map((item) => (
           <Card data={item} logo={logo} key={item.siteName} />
         )
-      });
-  
-      return (
-        <div>
-          {cards}
-        </div>
-      );
-    } else {
-      return (<div></div>);
-    }
-  }
+      ) }
+    </div>
+    )
 }
 
 export default IndexPage;
