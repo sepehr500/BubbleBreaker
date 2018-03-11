@@ -1,0 +1,25 @@
+.gd{
+  display: grid;
+	grid-template-areas: "header header header"
+	                     ". main ."
+	                     "footer footer footer";
+	grid-template-columns: 150px 1fr 150px;
+	grid-template-rows: 100px 
+						1fr
+						30px;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif
+}
+
+.justify-even {justify-content: space-evenly}
+
+.card-width {max-width: 24vw;}
+
+.word-wrap {
+  white-space: pre-wrap; /* css-3 */    
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */    
+  white-space: -o-pre-wrap; /* Opera 7 */    
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}

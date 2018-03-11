@@ -16,9 +16,13 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css" />
-    <Header />
-    <div>
-      {children()}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <div className="gd">
+      <Header />
+      <div style={{ gridArea: 'main' }} >
+        {children()}
+      </div>
+
     </div>
   </div>
 );

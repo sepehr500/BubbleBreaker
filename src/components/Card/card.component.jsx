@@ -44,13 +44,13 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div className="card" style={this.getBoxShadow(this.props.data.slant)}>
+      <div className="pa br3 pa2 ba mb3 truncate" style={this.getBoxShadow(this.props.data.slant)}>
         <div className="card-header">
           <img className="card-header-logo" src={this.props.logo} />
-          <a href={this.props.data.siteUrl} className={this.getTitleHoverColor(this.props.data.slant)} target="_blank">{this.props.data.siteName}</a>
+          <a href={this.props.data.siteUrl} className="word-wrap" target="_blank">{this.props.data.siteName}</a>
         </div>
-        <div className="card-body">
-          <a className={this.getLinkHoverColor(this.props.data.slant)} href={this.props.data.articleLink} target="_blank">{this.props.data.articleTitle}</a>
+        <div className="pt1">
+          <a className="f3 link word-wrap" href={this.props.data.articleLink} target="_blank">{this.props.data.articleTitle}</a>
         </div>
       </div>
     );

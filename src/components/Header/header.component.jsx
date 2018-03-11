@@ -5,13 +5,13 @@ import './header.component.scss';
 
 class Header extends React.Component {
   render() {
-    return ( 
-      <div className="background">
+    return (
+      <div style={{ gridArea: 'header' }} className="background">
         <div className="setup">
           <a href="/" className="text">Gatsby</a>
         </div>
-      </div> 
-    )
+      </div>
+    );
   }
 }
 
