@@ -1,67 +1,41 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { curry } from 'ramda';
+import classNames from 'classnames';
 
-import './card.component.css';
+import './card.component.scss';
 
 class Card extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  getBoxShadow(slant) {
-    switch(slant) {
-      case('L'):
-        return { boxShadow: '4px 4px 10px -2px rgba(0, 78, 255, 0.2)' };
-        break;
-      case('R'):
-        return { boxShadow: '4px 4px 10px -2px rgba(218, 59, 59, 0.2)' };
-        break;
+  classSlant = curry((left, center, right, current) => {
+    switch (this.props.data.slant) {
+      case ('L'):
+        return `${left} ${current}`;
+      case ('R'):
+        return `${right} ${current}`;
       default:
-        return { boxShadow: '4px 4px 10px -2px rgba(0, 0, 0, 0.2)' };
-        break;
+        return `${center} ${current}`;
     }
-  }
-
-  getTitleHoverColor(slant) {
-    switch(slant) {
-      case('L'):
-        return 'card-header-text-left';
-        break;
-      case('R'):
-        return 'card-header-text-right';
-        break;
-      default:
-        return 'card-header-text-center';
-        break;
-    }
-  }
-
-  getLinkHoverColor(slant) {
-    switch(slant) {
-      case('L'):
-        return 'card-body-link-left';
-        break;
-      case('R'):
-        return 'card-body-link-right';
-        break;
-      default:
-        return 'card-body-link-center';
-        break;
-    }
-  }
+  })
 
   render() {
+    // CURRYING IS PRETTY SWEET
+    const withLink = this.classSlant('hover-blue', 'hover-light-silver', 'hover-red')
     return (
-      <div className="card" style={this.getBoxShadow(this.props.data.slant)}>
-        <div className="card-header">
+      <div className="pa br3 pa2 ba b--black-10  mb3 truncate shadow-4">
+        <div className="pb1 bb b--black-20">
           <img className="card-header-logo" src={this.props.logo} />
-          <a href={this.props.data.siteUrl} className={this.getTitleHoverColor(this.props.data.slant)} target="_blank">{this.props.data.siteName}</a>
+          <a
+            href={this.props.data.siteUrl}
+            className={withLink('b f4 black link pl2 word-wrap')}
+            target="_blank"
+          >
+            {this.props.data.siteName}
+          </a>
         </div>
-        <div className="card-body">
-          <a className={this.getLinkHoverColor(this.props.data.slant)} href={this.props.data.articleLink} target="_blank">{this.props.data.articleTitle}</a>
+        <div className="pt1">
+          <a className={withLink("f3 black lh-copy link word-wrap")} href={this.props.data.articleLink} target="_blank">{this.props.data.articleTitle}</a>
         </div>
       </div>
-    )
+    );
   }
 }
 

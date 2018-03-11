@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import Header from '../components/Header/header.component.jsx'
+import Header from '../components/Header/header.component.jsx';
 
-import './index.css'
+import './index.scss';
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -15,22 +15,17 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <div className="gd">
+      <Header />
       {children()}
     </div>
   </div>
-)
+);
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-}
+  children: PropTypes.func.isRequired,
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
