@@ -24,22 +24,20 @@ class IndexPage extends React.Component {
 
   render() {
     const groupedBySlant = this.state.items ? groupBy(x => x.slant, this.state.items) : null;
-    return (
-      <div className="flex justify-even"> 
-        <div>
+    return [
+        <div style={{gridArea: 'L'}}>
         <h1>L</h1>
         {groupedBySlant && groupedBySlant.L.map(this.renderCard) }
-        </div>
-        <div  >
+        </div>,
+        <div style={{gridArea: 'C'}}>
         <h1>C</h1>
         {groupedBySlant && groupedBySlant.C.map(this.renderCard) }
-        </div>
-        <div >
+        </div>,
+        <div style={{gridArea: 'R'}}>
         <h1>R</h1>
         {groupedBySlant && groupedBySlant.R.map(this.renderCard) }
         </div>
-      </div>
-    );
+    ];
   }
 }
 

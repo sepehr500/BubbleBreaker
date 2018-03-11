@@ -1,15 +1,16 @@
 .gd{
   display: grid;
-	grid-template-areas: "header header header"
-	                     ". main ."
-	                     "footer footer footer";
-	grid-template-columns: 150px 1fr 150px;
+	grid-template-areas: "header header header header header"
+	                     ". L C R ."
+	                     "footer footer footer footer footer";
+	grid-template-columns: 1fr repeat(3,minmax(min-content, 500px)) 1fr;
 	grid-template-rows: 100px 
 						1fr
 						30px;
   width: 100vw;
   height: 100vh;
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Open Sans', sans-serif;
+  grid-column-gap: 35px;
 }
 
 .justify-even {justify-content: space-evenly}
