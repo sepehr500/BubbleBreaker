@@ -13,6 +13,27 @@
   grid-column-gap: 35px;
 }
 
+@media screen and (max-width: 500px) {
+  .gd{
+    display: grid;
+    grid-template-areas: "header"
+                        "L"
+                        "C"
+                        "R"
+                        "Footer";
+    grid-template-columns: auto;
+    grid-template-rows: 
+              100px
+              1fr
+              1fr
+              1fr
+              30px;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+ }
+
 .justify-even {justify-content: space-evenly}
 
 .card-width {max-width: 24vw;}
