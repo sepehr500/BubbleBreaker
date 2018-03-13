@@ -25,15 +25,15 @@ class IndexPage extends React.Component {
   render() {
     const groupedBySlant = this.state.items ? groupBy(x => x.slant, this.state.items) : null;
     return [
-        <div style={{gridArea: 'L'}}>
+        <div className="ph0-ns ph4" style={{gridArea: 'L'}}>
         <h1>L</h1>
         {groupedBySlant && groupedBySlant.L.map(this.renderCard) }
         </div>,
-        <div style={{gridArea: 'C'}}>
+        <div className="ph0-ns ph4"  style={{gridArea: 'C'}}>
         <h1>C</h1>
         {groupedBySlant && groupedBySlant.C.map(this.renderCard) }
         </div>,
-        <div style={{gridArea: 'R'}}>
+        <div className="ph0-ns ph4"  style={{gridArea: 'R'}}>
         <h1>R</h1>
         {groupedBySlant && groupedBySlant.R.map(this.renderCard) }
         </div>
